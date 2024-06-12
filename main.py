@@ -195,26 +195,30 @@ doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan 
 #Doktorları Uzmanlık alanına göre gruplama işlemi
 print("Doktor Sayısı Uzmanlık Alanına Göre:")
 print(doktorSayi)
-
+print("................................................................................................................................")
 
 #Maas instanceının 7000 den büyük olduğu rowları bulma ve sonrasında bu rowların hepsini yuksekMaas dataframeinde saklayıp yazdırma işlemi
 yuksekMaas = data[data["Maas"]>7000]
 print("Maaşı 7000'den fazla olan personeller: ")
 print(yuksekMaas)
-
+print("................................................................................................................................")
 
 #Deneyim Yili instanceının 5 den büyük ve uzmanlığın 0 olmadığı(doktor olan)
 #rowların sayısını hesaplayıp deneyimli dataframeinde sakladıktan sonra yazdırma işlemi
 deneyimli = data[(data["Deneyim Yili"] > 5) & (data["Uzmanlik"] != 0)].shape[0]
 print("5 Yıldan fazla deneyime sahip doktor sayısı: ")
 print(deneyimli)
-
+print("................................................................................................................................")
 
 hastaAdi = data[data["Hasta No"] != 0] #Hasta Nosu 0 olmayan rowları yani hastaları bulup hastaAdi dataframeinde saklama işlemi
 print("Alfabetik olarak sıralanmış şekilde hastalar: ")
 print(hastaAdi.sort_values("Ad")) #Ad instanceına göre A'dan Z'ye olacak şekilde rowları sıralayıp yazdırma işlemi
-
+print("................................................................................................................................")
 
 dogumHasta = data[(data["Hasta No"] !=0 ) & (data["Dogum Tarihi"] >= 1990)]
 print("1990 yılı ve sonrasında doğmuş hastalar: ")
 print(dogumHasta)
+print("................................................................................................................................")
+print("Tüm DataFrame: ")
+newData = data[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim Yili", "Hastalik", "Tedavi"]]
+print(newData)
