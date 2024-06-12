@@ -111,7 +111,7 @@ hemsireList = [
         "Soyad":        hemsire1.getSoyad(),
         "Departman":    hemsire1.getDepartman(),
         "Maas":         hemsire1.getMaas(),
-        "Çalışma Saati": hemsire1.getSaat(),
+        "Calisma Saati": hemsire1.getSaat(),
         "Sertifika": hemsire1.getSertifika(),
         "Hastane": hemsire1.getHastane()
     }),
@@ -122,7 +122,7 @@ hemsireList = [
         "Soyad":        hemsire2.getSoyad(),
         "Departman":    hemsire2.getDepartman(),
         "Maas":         hemsire2.getMaas(),
-        "Çalışma Saati": hemsire2.getSaat(),
+        "Calisma Saati": hemsire2.getSaat(),
         "Sertifika": hemsire2.getSertifika(),
         "Hastane": hemsire2.getHastane()
     }),
@@ -133,7 +133,7 @@ hemsireList = [
         "Soyad":        hemsire3.getSoyad(),
         "Departman":    hemsire3.getDepartman(),
         "Maas":         hemsire3.getMaas(),
-        "Çalışma Saati": hemsire3.getSaat(),
+        "Calisma Saati": hemsire3.getSaat(),
         "Sertifika": hemsire3.getSertifika(),
         "Hastane": hemsire3.getHastane()
     })
@@ -193,7 +193,7 @@ doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan 
 #Doktorları Uzmanlık alanına göre gruplama işlemi
 print("Doktor Sayısı Uzmanlık Alanına Göre:")
 print(doktorSayi)
-
+#
 yuksekMaas = data[data["Maas"]>7000]
 print("Maaşı 7000'den fazla olan personeller: ")
 print(yuksekMaas)
