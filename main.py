@@ -173,12 +173,12 @@ for personel in personelList:  #personelList listesi içinde dönerek tüm perso
     data.loc[len(data)] = personel  
             # data'nın uzunluğunu endeks alan rowa erişmeyi sağlayan .loc metodu
 for doktor in doktorList:
-    data.loc[len(data)] = doktor
+    data.loc[len(data)] = doktor #İşlem tekrar edilir
 
 for hemsire in hemsireList:
     data.loc[len(data)] = hemsire
 
-for hasta in hastaList:
+for hasta in hastaList: #Hasta rowlarında farklı instancelar olduğundan sadece kendi instancelarını okuttum
     data.loc[len(data)] = {
         "Hasta No": hasta["Hasta No"],
         "Ad": hasta["Ad"],
@@ -188,7 +188,7 @@ for hasta in hastaList:
         "Tedavi": hasta["Tedavi"]
     }
 
-data = data.fillna(0)
+data = data.fillna(0) #NaN olan instancelara 0 atanma işlemi
 
 
 doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan uzmanlik instancelarına göre gruplama işlemi
@@ -215,7 +215,8 @@ print("Alfabetik olarak sıralanmış şekilde hastalar: ")
 print(hastaAdi.sort_values("Ad")) #Ad instanceına göre A'dan Z'ye olacak şekilde rowları sıralayıp yazdırma işlemi
 print("................................................................................................................................")
 
-dogumHasta = data[(data["Hasta No"] !=0 ) & (data["Dogum Tarihi"] >= 1990)]
+dogumHasta = data[(data["Hasta No"] !=0 ) & (data["Dogum Tarihi"] >= 1990)] #Tekrar hasta no instanceından hasta rowları bulunup 
+                                                                            #dogum tarihi instanceı 1990 ve sonrası olan hastalar bulunup yazdırılıyor
 print("1990 yılı ve sonrasında doğmuş hastalar: ")
 print(dogumHasta)
 print("................................................................................................................................")
