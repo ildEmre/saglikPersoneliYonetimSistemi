@@ -1,0 +1,1 @@
+data = data.fillna(0)

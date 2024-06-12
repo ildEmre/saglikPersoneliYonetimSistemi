@@ -189,4 +189,5 @@ for hasta in hastaList:
         "Tedavi": hasta["Tedavi"]
     }
 
+data = data.fillna(0)
 
