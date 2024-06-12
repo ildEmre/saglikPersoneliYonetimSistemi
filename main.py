@@ -1,11 +1,13 @@
 try:
     from classes import personel, hasta, hemsire, doktor
-except:
+except ImportError:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
+    raise
 try:
     from pandas import DataFrame, Series
-except:
+except ImportError:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
+    raise
 
 data = DataFrame({ 
     "Personel No":  [],
@@ -25,12 +27,12 @@ data = DataFrame({
 })
 personel1 = personel(104, "Emre", "İldeniz", "Kardiyoloji", 45000)
 personel2 = personel(105, "Furkan", "Yılmaz", "Radyoloji", 50000)
-doktor1 = doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Hastane1")
-doktor2 = doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Hastane2")
-doktor3 = doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog" 5, "Hastane3" )
-hemsire1 = hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Hastane1")
-hemsire2 = hemsire(121, "Faruk", "Yavuz","Anestezi", 45000, 10, "Anestezi Sertifikası", "Hastane2")
-hemsire3 = hemsire(122, "Orkun", "Yılmaz","Cerrahi", 40000, 14, "Cerrahi Sertifikası", "Hastane3")
+doktor1 = doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Alsancak Devlet Hastanesi")
+doktor2 = doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Karşıyaka Devlet Hastanesi")
+doktor3 = doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 5, "Çiğli Eğitim ve Araştırma Hastanesi" )
+hemsire1 = hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Alsancak Devlet Hastanesi")
+hemsire2 = hemsire(121, "Faruk", "Yavuz","Anestezi", 45000, 10, "Anestezi Sertifikası", "Karşıyaka Devlet Hastanesi")
+hemsire3 = hemsire(122, "Orkun", "Yılmaz","Genel Cerrahi", 40000, 14, "Cerrahi Sertifikası", "Çiğli Eğitim ve Araştırma Hastanesi")
 hasta1 = hasta(10, "Mert", "İldeniz", 2000, "Grip", "İlaç")
 hasta2 = hasta(11, "Yaren", "Demir", 2002, "Faranjit", "İlaç")
 hasta3 = hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
@@ -154,7 +156,7 @@ hastaList = [
 ]
 
 for personel in personelList:
-    data.loc[len(data)] = personel  #Series i dataframe'e ekleme işlemi
+    data.loc[len(data)] = personel  
 
 for doktor in doktorList:
     data.loc[len(data)] = doktor
