@@ -12,7 +12,7 @@ except ImportError:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
     raise
 
-data = DataFrame({ 
+data = DataFrame({ #Tüm instance lar kullanılarak oluşturulan ana dataframe
     "Personel No":  [],
     "Ad":           [],
     "Soyad":        [],
@@ -51,7 +51,7 @@ print(str(hasta2))
 hasta3 = Hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
 print(str(hasta3))
 
-personelList = [
+personelList = [ #Dataframe'e eklenmek için oluşturulan Series objectleri
     Series({
         "Personel No":  personel1.getNo(),
         "Ad":           personel1.getAd(),
@@ -76,7 +76,7 @@ doktorList = [
         "Soyad":        doktor1.getSoyad(),
         "Departman":    doktor1.getDepartman(),
         "Maas":         doktor1.getMaas(),
-        "Uzmanlık":    doktor1.getUzmanlik(),
+        "Uzmanlik":    doktor1.getUzmanlik(),
         "Deneyim Yılı": doktor1.getDeneyimYili(),
         "Hastane": doktor1.getHastane()
     }),
@@ -87,7 +87,7 @@ doktorList = [
         "Soyad":        doktor2.getSoyad(),
         "Departman":    doktor2.getDepartman(),
         "Maas":         doktor2.getMaas(),
-        "Uzmanlık":    doktor2.getUzmanlik(),
+        "Uzmanlik":    doktor2.getUzmanlik(),
         "Deneyim Yılı": doktor2.getDeneyimYili(),
         "Hastane": doktor2.getHastane()
     }),
@@ -98,7 +98,7 @@ doktorList = [
         "Soyad":        doktor3.getSoyad(),
         "Departman":    doktor3.getDepartman(),
         "Maas":         doktor3.getMaas(),
-        "Uzmanlık":    doktor3.getUzmanlik(),
+        "Uzmanlik":    doktor3.getUzmanlik(),
         "Deneyim Yılı": doktor3.getDeneyimYili(),
         "Hastane": doktor3.getHastane()
     })
@@ -174,8 +174,7 @@ for personel in personelList:  #personelList listesi içinde dönerek tüm perso
             # data'nın uzunluğunu endeks alan rowa erişmeyi sağlayan .loc metodu
 for doktor in doktorList:
     data.loc[len(data)] = doktor
-doktorSayi = data.groupby("Uzmanlik").size()
-#Doktorları uzmanlık alanlarına göre gruplandırma işlemi
+
 for hemsire in hemsireList:
     data.loc[len(data)] = hemsire
 
@@ -190,4 +189,10 @@ for hasta in hastaList:
     }
 
 data = data.fillna(0)
+doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan uzmanlik instancelarına göre gruplama işlemi
+#Doktorları Uzmanlık alanına göre gruplama işlemi
+print("Doktor Sayısı Uzmanlık Alanına Göre:")
+print(doktorSayi)
+
+yuksekMaas = data[data["Maas"]>7000]
 
