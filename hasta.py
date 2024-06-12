@@ -31,8 +31,12 @@ class Hasta():
     def setTedavi(self, tedavi):
         self.tedavi = tedavi
     def tedaviSuresiHesapla(self):
-        tedaviSuresi = 0
-        # GERİ DÖNÜLECEK!!!!!!
+        if self.hastalik == "Grip":
+            return 7
+        if self.hastalik == "Faranjit":
+            return 14
+        if self.hastalik == "Fıtık":
+            return 100
     def __str__(self):
         return f"Hasta Bilgileri: \nHasta No: {self.hastaNo}\nAd: {self.ad}\nSoyad: {self.soyad}\nDogum Tarihi: {self.dogumTarihi}\nHastalik: {self.hastalik}\nTedavi: {self.tedavi}"
 
