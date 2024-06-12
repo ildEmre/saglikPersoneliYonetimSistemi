@@ -29,16 +29,27 @@ data = DataFrame({
     "Tedavi" :      []
 })
 personel1 = Personel(104, "Emre", "İldeniz", "Kardiyoloji", 45000)
+print(str(personel1))
 personel2 = Personel(105, "Furkan", "Yılmaz", "Radyoloji", 50000)
+print(str(personel2))
 doktor1 = Doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Alsancak Devlet Hastanesi")
+print(str(doktor1))
 doktor2 = Doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Karşıyaka Devlet Hastanesi")
+print(str(doktor2))
 doktor3 = Doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 5, "Çiğli Eğitim ve Araştırma Hastanesi" )
+print(str(doktor3))
 hemsire1 = Hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Alsancak Devlet Hastanesi")
+print(str(hemsire1))
 hemsire2 = Hemsire(121, "Faruk", "Yavuz","Anestezi", 45000, 10, "Anestezi Sertifikası", "Karşıyaka Devlet Hastanesi")
+print(str(hemsire2))
 hemsire3 = Hemsire(122, "Orkun", "Yılmaz","Genel Cerrahi", 40000, 14, "Cerrahi Sertifikası", "Çiğli Eğitim ve Araştırma Hastanesi")
+print(str(hemsire3))
 hasta1 = Hasta(10, "Mert", "İldeniz", 2000, "Grip", "İlaç")
+print(str(hasta1))
 hasta2 = Hasta(11, "Yaren", "Demir", 2002, "Faranjit", "İlaç")
+print(str(hasta2))
 hasta3 = Hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
+print(str(hasta3))
 
 personelList = [
     Series({
@@ -163,7 +174,8 @@ for personel in personelList:  #personelList listesi içinde dönerek tüm perso
             # data'nın uzunluğunu endeks alan rowa erişmeyi sağlayan .loc metodu
 for doktor in doktorList:
     data.loc[len(data)] = doktor
-            # Aynı işlemi tekrar et
+doktorSayi = data.groupby("Uzmanlik").size()
+#Doktorları uzmanlık alanlarına göre gruplandırma işlemi
 for hemsire in hemsireList:
     data.loc[len(data)] = hemsire
 
@@ -172,8 +184,9 @@ for hasta in hastaList:
         "Hasta No": hasta["Hasta No"],
         "Ad": hasta["Ad"],
         "Soyad": hasta["Soyad"],
-        "Dogum Tarihi": hasta["Dogum Tarihi"],
-        "Hastalik": hasta["Hastalik"],
+        "Dogum Tarihi": hasta["Doğum Tarihi"],
+        "Hastalik": hasta["Hastalık"],
         "Tedavi": hasta["Tedavi"]
     }
+
 

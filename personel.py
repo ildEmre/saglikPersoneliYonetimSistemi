@@ -26,5 +26,5 @@ class Personel:
     def setMaas(self, maas):
         self.maas = maas
     def __str__(self):
-        return "Personel Bilgileri: \nAd: ", self.ad, "\nSoyad: ", self.soyad, "\nDepartman: " , self.departman, "\nMaas:", self.maas
+        return f"Personel Bilgileri: \nAd: {self.ad}\nSoyad: {self.soyad}\nDepartman: {self.departman}\nMaas: {self.maas}"
     

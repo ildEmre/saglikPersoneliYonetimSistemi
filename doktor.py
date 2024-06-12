@@ -18,6 +18,6 @@ class Doktor(Personel):
     def setHastane(self, hastane):
         self.hastane = hastane
     def __str__(self):
-        return super().__str__() + "\nUzmanlik: ", self.uzmanlik, "\nDeneyim yili: ", self.deneyimYili, "\nHastane: ", self.hastane
+        return super().__str__() + f"\nUzmanlik: {self.uzmanlik}\nDeneyim yili: {self.deneyimYili}\nHastane: {self.hastane}"
     def maasArttir(self, oran):
         self.maas += self.maas * oran/100

@@ -34,6 +34,6 @@ class Hasta():
         tedaviSuresi = 0
         # GERİ DÖNÜLECEK!!!!!!
     def __str__(self):
-        return "Hasta Bilgileri: ","\nHasta No: ", self.hastaNo, "\nAd: ", self.ad, "\nSoyad: ", self.soyad, "\nDogum Tarihi: ", self.dogumTarihi, "\nHastalik: ", self.hastalik, "\nTedavi: ", self.tedavi
+        return f"Hasta Bilgileri: \nHasta No: {self.hastaNo}\nAd: {self.ad}\nSoyad: {self.soyad}\nDogum Tarihi: {self.dogumTarihi}\nHastalik: {self.hastalik}\nTedavi: {self.tedavi}"
 
 

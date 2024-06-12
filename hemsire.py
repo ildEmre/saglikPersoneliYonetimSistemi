@@ -18,6 +18,6 @@ class Hemsire(Personel):
     def setHastane(self, hastane):
         self.hastane = hastane
     def __str__(self):
-        return super().__str__() + "\nCalisma Saati: ", self.calismaSaati, "\nSertifika: ", self.sertifika, "\nHastane: ", self.hastane
+        return super().__str__() + f"\nCalisma Saati: {self.calismaSaati}\nSertifika: {self.sertifika}\nHastane: {self.hastane}"
     def maasArttir(self, oran):
         self.maas += self.maas * oran/100
