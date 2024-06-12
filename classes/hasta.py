@@ -26,6 +26,10 @@ class Hasta():
         return self.hastalik
     def setHastalik(self, hastalik):
         self.hastalik = hastalik
+    def getTedavi(self):
+        return self.tedavi
+    def setTedavi(self, tedavi):
+        self.tedavi = tedavi
     def tedaviSuresiHesapla(self):
         tedaviSuresi = 0
         # GERİ DÖNÜLECEK!!!!!!
