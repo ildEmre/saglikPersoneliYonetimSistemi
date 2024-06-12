@@ -1,5 +1,5 @@
 try:
-    from classes import *
+    from classes import personel, hasta, hemsire, doktor
 except:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
 try:
@@ -7,7 +7,7 @@ try:
 except:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
 
-data = DataFrame({
+data = DataFrame({ 
     "Personel No":  [],
     "Ad":           [],
     "Soyad":        [],
