@@ -36,7 +36,7 @@ doktor1 = Doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Alsa
 print(str(doktor1))
 doktor2 = Doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Karşıyaka Devlet Hastanesi")
 print(str(doktor2))
-doktor3 = Doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 5, "Çiğli Eğitim ve Araştırma Hastanesi" )
+doktor3 = Doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 6, "Çiğli Eğitim ve Araştırma Hastanesi" )
 print(str(doktor3))
 hemsire1 = Hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Alsancak Devlet Hastanesi")
 print(str(hemsire1))
@@ -77,7 +77,7 @@ doktorList = [
         "Departman":    doktor1.getDepartman(),
         "Maas":         doktor1.getMaas(),
         "Uzmanlik":    doktor1.getUzmanlik(),
-        "Deneyim Yılı": doktor1.getDeneyimYili(),
+        "Deneyim Yili": doktor1.getDeneyimYili(),
         "Hastane": doktor1.getHastane()
     }),
 
@@ -88,7 +88,7 @@ doktorList = [
         "Departman":    doktor2.getDepartman(),
         "Maas":         doktor2.getMaas(),
         "Uzmanlik":    doktor2.getUzmanlik(),
-        "Deneyim Yılı": doktor2.getDeneyimYili(),
+        "Deneyim Yili": doktor2.getDeneyimYili(),
         "Hastane": doktor2.getHastane()
     }),
 
@@ -99,7 +99,7 @@ doktorList = [
         "Departman":    doktor3.getDepartman(),
         "Maas":         doktor3.getMaas(),
         "Uzmanlik":    doktor3.getUzmanlik(),
-        "Deneyim Yılı": doktor3.getDeneyimYili(),
+        "Deneyim Yili": doktor3.getDeneyimYili(),
         "Hastane": doktor3.getHastane()
     })
 ]
@@ -195,4 +195,9 @@ print("Doktor Sayısı Uzmanlık Alanına Göre:")
 print(doktorSayi)
 
 yuksekMaas = data[data["Maas"]>7000]
+print("Maaşı 7000'den fazla olan personeller: ")
+print(yuksekMaas)
 
+deneyimli = data[(data["Deneyim Yili"] > 5) & (data["Uzmanlik"] != 0)].shape[0]
+print("5 Yıldan fazla deneyime sahip doktor sayısı: ")
+print(deneyimli)
