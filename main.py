@@ -146,7 +146,7 @@ hastaList = [
         "Ad": hasta1.getAd(),
         "Soyad": hasta1.getSoyad(),
         "Doğum Tarihi": hasta1.getDogumTarihi(),
-        "Hastalık": hasta1.getHastalik(),
+        "Hastalik": hasta1.getHastalik(),
         "Tedavi": hasta1.getTedavi()
     }),
 
@@ -155,7 +155,7 @@ hastaList = [
         "Ad": hasta2.getAd(),
         "Soyad": hasta2.getSoyad(),
         "Doğum Tarihi": hasta2.getDogumTarihi(),
-        "Hastalık": hasta2.getHastalik(),
+        "Hastalik": hasta2.getHastalik(),
         "Tedavi": hasta2.getTedavi()
     }),
 
@@ -164,7 +164,7 @@ hastaList = [
         "Ad": hasta3.getAd(),
         "Soyad": hasta3.getSoyad(),
         "Doğum Tarihi": hasta3.getDogumTarihi(),
-        "Hastalık": hasta3.getHastalik(),
+        "Hastalik": hasta3.getHastalik(),
         "Tedavi": hasta3.getTedavi()
     })
 ]
@@ -184,7 +184,7 @@ for hasta in hastaList:
         "Ad": hasta["Ad"],
         "Soyad": hasta["Soyad"],
         "Dogum Tarihi": hasta["Doğum Tarihi"],
-        "Hastalik": hasta["Hastalık"],
+        "Hastalik": hasta["Hastalik"],
         "Tedavi": hasta["Tedavi"]
     }
 
@@ -193,11 +193,13 @@ doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan 
 #Doktorları Uzmanlık alanına göre gruplama işlemi
 print("Doktor Sayısı Uzmanlık Alanına Göre:")
 print(doktorSayi)
-#
+#Maas instanceının 7000 den büyük olduğu rowları bulma ve sonrasında bu rowların hepsini yuksekMaas dataframeinde saklayıp yazdırma işlemi
 yuksekMaas = data[data["Maas"]>7000]
 print("Maaşı 7000'den fazla olan personeller: ")
 print(yuksekMaas)
-
+#Deneyim Yili instanceının 5 den büyük ve uzmanlığın 0 olmadığı(doktor olan)
+#rowların sayısını hesaplayıp deneyimli dataframeinde sakladıktan sonra yazdırma işlemi
 deneyimli = data[(data["Deneyim Yili"] > 5) & (data["Uzmanlik"] != 0)].shape[0]
 print("5 Yıldan fazla deneyime sahip doktor sayısı: ")
 print(deneyimli)
+
