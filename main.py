@@ -46,9 +46,9 @@ hemsire3 = Hemsire(122, "Orkun", "Yılmaz","Genel Cerrahi", 40000, 14, "Cerrahi 
 print(str(hemsire3))
 hasta1 = Hasta(10, "Mert", "İldeniz", 2000, "Grip", "İlaç")
 print(str(hasta1))
-hasta2 = Hasta(11, "Yaren", "Demir", 2002, "Faranjit", "İlaç")
+hasta2 = Hasta(11, "Yaren", "Demir", 1990, "Faranjit", "İlaç")
 print(str(hasta2))
-hasta3 = Hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
+hasta3 = Hasta(12, "Adil", "Polat", 1970, "Fıtık", "Ameliyat")
 print(str(hasta3))
 
 personelList = [ #Dataframe'e eklenmek için oluşturulan Series objectleri
@@ -189,17 +189,32 @@ for hasta in hastaList:
     }
 
 data = data.fillna(0)
+
+
 doktorSayi = data[data["Uzmanlik"] != 0].groupby("Uzmanlik").size() # 0 olmayan uzmanlik instancelarına göre gruplama işlemi
 #Doktorları Uzmanlık alanına göre gruplama işlemi
 print("Doktor Sayısı Uzmanlık Alanına Göre:")
 print(doktorSayi)
+
+
 #Maas instanceının 7000 den büyük olduğu rowları bulma ve sonrasında bu rowların hepsini yuksekMaas dataframeinde saklayıp yazdırma işlemi
 yuksekMaas = data[data["Maas"]>7000]
 print("Maaşı 7000'den fazla olan personeller: ")
 print(yuksekMaas)
+
+
 #Deneyim Yili instanceının 5 den büyük ve uzmanlığın 0 olmadığı(doktor olan)
 #rowların sayısını hesaplayıp deneyimli dataframeinde sakladıktan sonra yazdırma işlemi
 deneyimli = data[(data["Deneyim Yili"] > 5) & (data["Uzmanlik"] != 0)].shape[0]
 print("5 Yıldan fazla deneyime sahip doktor sayısı: ")
 print(deneyimli)
 
+
+hastaAdi = data[data["Hasta No"] != 0] #Hasta Nosu 0 olmayan rowları yani hastaları bulup hastaAdi dataframeinde saklama işlemi
+print("Alfabetik olarak sıralanmış şekilde hastalar: ")
+print(hastaAdi.sort_values("Ad")) #Ad instanceına göre A'dan Z'ye olacak şekilde rowları sıralayıp yazdırma işlemi
+
+
+dogumHasta = data[(data["Hasta No"] !=0 ) & (data["Dogum Tarihi"] >= 1990)]
+print("1990 yılı ve sonrasında doğmuş hastalar: ")
+print(dogumHasta)
