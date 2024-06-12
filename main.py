@@ -100,7 +100,7 @@ hemsireList = [
         "Çalışma Saati": hemsire1.getSaat(),
         "Sertifika": hemsire1.getSertifika(),
         "Hastane": hemsire1.getHastane()
-    })
+    }),
 
     Series({
         "Personel No":  hemsire2.getNo(),
@@ -111,7 +111,7 @@ hemsireList = [
         "Çalışma Saati": hemsire2.getSaat(),
         "Sertifika": hemsire2.getSertifika(),
         "Hastane": hemsire2.getHastane()
-    })
+    }),
 
     Series({
         "Personel No":  hemsire3.getNo(),
@@ -134,7 +134,7 @@ hastaList = [
         "Doğum Tarihi": hasta1.getDogumTarihi(),
         "Hastalık": hasta1.getHastalik(),
         "Tedavi": hasta1.getTedavi()
-    })
+    }),
 
     Series({
         "Hasta No": hasta2.getHastaNo(),
@@ -143,7 +143,7 @@ hastaList = [
         "Doğum Tarihi": hasta2.getDogumTarihi(),
         "Hastalık": hasta2.getHastalik(),
         "Tedavi": hasta2.getTedavi()
-    })
+    }),
 
     Series({
         "Hasta No": hasta3.getHastaNo(),
@@ -155,17 +155,16 @@ hastaList = [
     })
 ]
 
-for personel in personelList:
+for personel in personelList:  #personelList listesi içinde dönerek tüm personel rowlarını okuyup data dataframeine ekleyen bir loop
     data.loc[len(data)] = personel  
-
+            # data'nın uzunluğunu endeks alan rowa erişmeyi sağlayan .loc metodu
 for doktor in doktorList:
     data.loc[len(data)] = doktor
-
+            # Aynı işlemi tekrar et
 for hemsire in hemsireList:
     data.loc[len(data)] = hemsire
 
 for hasta in hastaList:
     data.loc[len(data)] = hasta
 
-data = data.fillna(0)
-newData = data.get(["Ad", "Soyad", "Departman", "Maas", "Uzmanlık", "Deneyim Yılı", "Hastalık", "Tedavi"])
+data = data.fillna(0) #Boş olan değişkenlere 0 atama işlemi 
