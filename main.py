@@ -1,5 +1,8 @@
 try:
-    from classes import personel, hasta, hemsire, doktor
+    from personel import Personel
+    from doktor import Doktor
+    from hasta import Hasta
+    from hemsire import Hemsire
 except ImportError:
     print("Dosya yüklenirken hata oluştu. Tekrar deneyiniz.")
     raise
@@ -25,17 +28,17 @@ data = DataFrame({
     "Hastalik" :    [],
     "Tedavi" :      []
 })
-personel1 = personel(104, "Emre", "İldeniz", "Kardiyoloji", 45000)
-personel2 = personel(105, "Furkan", "Yılmaz", "Radyoloji", 50000)
-doktor1 = doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Alsancak Devlet Hastanesi")
-doktor2 = doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Karşıyaka Devlet Hastanesi")
-doktor3 = doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 5, "Çiğli Eğitim ve Araştırma Hastanesi" )
-hemsire1 = hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Alsancak Devlet Hastanesi")
-hemsire2 = hemsire(121, "Faruk", "Yavuz","Anestezi", 45000, 10, "Anestezi Sertifikası", "Karşıyaka Devlet Hastanesi")
-hemsire3 = hemsire(122, "Orkun", "Yılmaz","Genel Cerrahi", 40000, 14, "Cerrahi Sertifikası", "Çiğli Eğitim ve Araştırma Hastanesi")
-hasta1 = hasta(10, "Mert", "İldeniz", 2000, "Grip", "İlaç")
-hasta2 = hasta(11, "Yaren", "Demir", 2002, "Faranjit", "İlaç")
-hasta3 = hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
+personel1 = Personel(104, "Emre", "İldeniz", "Kardiyoloji", 45000)
+personel2 = Personel(105, "Furkan", "Yılmaz", "Radyoloji", 50000)
+doktor1 = Doktor(110, "Murat", "Demir", "Nöroloji", 55000, "Nörolog", 3, "Alsancak Devlet Hastanesi")
+doktor2 = Doktor(111, "Talha", "Aydın", "Üroloji", 60000, "Ürolog", 4, "Karşıyaka Devlet Hastanesi")
+doktor3 = Doktor(112, "Zeynep", "Dağ", "Onkoloji", 60000, "Onkolog", 5, "Çiğli Eğitim ve Araştırma Hastanesi" )
+hemsire1 = Hemsire(120, "Betül", "Aydın","Radyoloji", 40000, 12, "Radyoloji Sertifikası", "Alsancak Devlet Hastanesi")
+hemsire2 = Hemsire(121, "Faruk", "Yavuz","Anestezi", 45000, 10, "Anestezi Sertifikası", "Karşıyaka Devlet Hastanesi")
+hemsire3 = Hemsire(122, "Orkun", "Yılmaz","Genel Cerrahi", 40000, 14, "Cerrahi Sertifikası", "Çiğli Eğitim ve Araştırma Hastanesi")
+hasta1 = Hasta(10, "Mert", "İldeniz", 2000, "Grip", "İlaç")
+hasta2 = Hasta(11, "Yaren", "Demir", 2002, "Faranjit", "İlaç")
+hasta3 = Hasta(12, "Adil", "Polat", 1980, "Fıtık", "Ameliyat")
 
 personelList = [
     Series({
@@ -165,6 +168,12 @@ for hemsire in hemsireList:
     data.loc[len(data)] = hemsire
 
 for hasta in hastaList:
-    data.loc[len(data)] = hasta
+    data.loc[len(data)] = {
+        "Hasta No": hasta["Hasta No"],
+        "Ad": hasta["Ad"],
+        "Soyad": hasta["Soyad"],
+        "Dogum Tarihi": hasta["Dogum Tarihi"],
+        "Hastalik": hasta["Hastalik"],
+        "Tedavi": hasta["Tedavi"]
+    }
 
-data = data.fillna(0) #Boş olan değişkenlere 0 atama işlemi 

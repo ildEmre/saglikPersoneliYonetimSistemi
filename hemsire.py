@@ -1,4 +1,4 @@
-from classes.personel import *
+from personel import *
 class Hemsire(Personel):
     def __init__(self, personelNo, ad, soyad, departman, maas, calismaSaati, sertifika, hastane):
         super().__init__(personelNo, ad, soyad, departman, maas)
